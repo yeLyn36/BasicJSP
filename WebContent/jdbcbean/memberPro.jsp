@@ -10,7 +10,7 @@
 <%request.setCharacterEncoding("utf-8"); %>
 <jsp:useBean id="mb" class="jdbcbean.MemberBean"/>
 <jsp:setProperty name = "mb" property="*"/>			
-<jsp:useBean id="mdb" class="jdbcbean.MemberBean"/>
+<jsp:useBean id="mdb" class="jdbcbean.MemberDBbean"/>
 <% mdb.insert(mb); %>
 <jsp:setProperty name = "mb" property="*"/>			
 <body bgcolor="#FFFFCC">
