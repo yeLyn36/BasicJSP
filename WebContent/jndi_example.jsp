@@ -7,7 +7,8 @@
 <html>   
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Java Naming Directory Interface</title> 
+<!-- 해당 리소스 위치만 알면 가져다 쓰겠다. -->
 </head>
 <body>
 
