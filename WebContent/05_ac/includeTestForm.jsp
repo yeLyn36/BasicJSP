@@ -8,9 +8,9 @@
 </head>
 <body>
 	<h2>include 액션 태그</h2>
-	<form method ="post" action="includeTest.jsp">
+	<form method ="post" action="includeTest2.jsp">
 	이름  <input type="text" name="name"><br>
-	페이지 이름 <input type="text" name="pageName" value="includedTest"><br>
+	페이지 이름 <input type="text" name="pageName" value="includedTest2"><br>
 	<input type="submit" value="입력완료"> 
 	</form>
 </body>

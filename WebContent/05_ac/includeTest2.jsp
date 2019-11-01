@@ -12,6 +12,7 @@
 	<%
 	String name = "원예린";
 	String pageName = "includedTest2.jsp";
+ 
 	%>
 	
 	포함하는 페이지 includeTest2.jsp 입니다.<br>
