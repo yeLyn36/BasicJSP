@@ -1,18 +1,16 @@
-package b23.jdbcbean2311;
+package jdbcbean;
 import java.sql.*;
-
-import jdbcbean.DBconnection;
 
 public class MemberDBbean {
 	
-	final String JDBC_DRIVER = "org.gjt.mm.mysql.Driver";
-	final String JDBC_URL = "jdbc:mysql://localhost:3306/mydb";
-	final String USER = "root";
-	final String PASS = "mirim2";
-	Connection conn = null;
-	PreparedStatement pstmt = null;
-	String sql = null;
-	ResultSet rs = null;
+		final String JDBC_DRIVER = "org.gjt.mm.mysql.Driver";
+		final String JDBC_URL = "jdbc:mysql://localhost:3306/mydb";
+		final String USER = "root";
+		final String PASS = "mirim2";
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		String sql = null;
+		ResultSet rs = null;
 	
 	public MemberDBbean() {	
 		try {
