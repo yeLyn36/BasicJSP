@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"
-    import="javax.sql.*"
-    import="b23.jdbcbean2311.MemberDBbean"%>
+    pageEncoding="UTF-8"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="jdbcbean.MemberDBbean" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,30 +9,29 @@
 <title>Insert title here</title>
 </head>
 <body bgcolor="#FFFFCC">
-<% request.setCharacterEncoding("utf-8"); 
+<%  request.setCharacterEncoding("utf-8"); 
 	String id = request.getParameter("id");	
-	String pwd = request.getParameter("pwd"); 
-	MemberDBbean mdb = new MemberDBbean();
-	int result = mdb.selectId(id, pwd);
-	String msg="";
+	String pwd = request.getParameter("pwd");
+	MemberDBbean regDbBean = new MemberDBbean();
+	int Result = regDbBean.selectId(id, pwd);
+	String msg = "";
+	int result = regDbBean.selectId(id, pwd);
 	if(result == 1){ 	
-		Cookie cookie1 = new Cookie("id", id);
+		Cookie cookie = new Cookie("id", id);
 		Cookie cookie2 = new Cookie("pwd", pwd);
-		cookie1.setMaxAge(2*60);
+		cookie.setMaxAge(2*60);
 		cookie2.setMaxAge(2*60);
-		response.addCookie(cookie1);
-		response.addCookie(cookie2);
+		response.addCookie(cookie);
 		response.sendRedirect("loginCookieMain.jsp");
-	} else if (result == 2){	
+	} else if (result == 2){
 		msg = "ID 오류입니다.";
-	} else if (result == 3){
-		msg = "Password 오류입니다.";
-	} 
-	
-	if (result != 1){ %>
-		<h2><%=msg %></h2>
-		<input type=button value="뒤로가기" onClick="history.back()">
-	<% } %>
+	%>
+	<h2><%=msg %></h2>
+	<input type=submit value="뒤로 가기" onClick="history.back(-1);">&nbsp;
+<% } else if (result == 3){	
+	msg = "Password 오류입니다"; %>
+	<input type=submit value="뒤로 가기" onClick="history.back(-1);">
+<% } %>
 </center>
 </body>
 </html>

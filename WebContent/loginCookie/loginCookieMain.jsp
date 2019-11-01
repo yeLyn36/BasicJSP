@@ -7,22 +7,23 @@
 <title>Insert title here</title>
 </head>
 <body bgcolor="#FFFFCC">
-<% 	String id = "";
-	Cookie[] cookies = request.getCookies();
-	if(cookies != null){
-		for(int i = 0; i < cookies.length; i++){
-			if(cookies[i].getName().equals("id")){
-				id = cookies[i].getName();
-			}
-			if(id.equals("")){
-				response.sendRedirect("loginCookie.jsp");
-			}
+<% 
+String id = "";
+Cookie[] cookies = request.getCookies();
+if(cookies != null) {
+	for(int i=0; i<cookies.length; i++) {
+		if(cookies[i].getName().equals("id")) {
+			id = cookies[i].getValue();
 		}
-	}else {
-		response.sendRedirect("loginCookie.jsp");
+		if(id.equals("")) {
+			response.sendRedirect("loginCookie.jsp");
+		}
 	}
-	%>
-	
+}else {
+	response.sendRedirect("loginCookie.jsp");
+}
+%>
+<form method=post action="retreive.jsp">
 	<table align=center border=1 cellspacing="0" cellpadding="5">
 		<tr>
 			<td colspan=3 style="color: #996600" align="center" valign="middle">
@@ -31,15 +32,8 @@
 		</tr>
 		<tr valign="top">
 			<td height=50>
-				<form method=post action="retreive.jsp">
-					<input type=submit value="회원정보조회">
-				</form>
-			</td>
-			<td>
-				<form method=post action="update.jsp">
-					<input type=submit value="회원정보수정">
-				</form>
-			</td>
+				<input type=submit value="회원정보조회"></td></form>
+			<td><input type=button value="회원정보수정" onClick="javascript:location.href='update.jsp'"></td>
 			<td>
 				<form method=post action="delete.jsp">
 					<input type=submit value="회 원 탈 회">
@@ -47,10 +41,12 @@
 			</td>
 		</tr>
 	</table>
-	<form method=post action="logoutCookie.jsp">
-		<p align="center">
-			<input type=submit value="로그아웃">
-		</p>
+	<center>
+	<form method="post" action="logoutCookie.jsp">
+	<p>
+		<input type="submit" value="로그아웃"> &nbsp;
+	</p>
 	</form>
+	</center>
 </body>
 </html>

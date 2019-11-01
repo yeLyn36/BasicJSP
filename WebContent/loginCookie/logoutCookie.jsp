@@ -6,26 +6,22 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body>
-<br><br/>
+<body bgcolor="#FFFFCC">
+	<br><br/>
 <%
 	Cookie[] cookies = request.getCookies();
-	if(cookies != null){
-		for (int i = 0; i < cookies.length; i++){
-			if(cookies[i].getName().equals("id")){
-				cookies[i].setMaxAge(0);
+	if(cookies != null) {
+		for(int i = 0; i < cookies.length; i++) {
+			if(cookies[i].getName().equals("id")) {
+				cookies[i].setMaxAge(0); //시간을 0으로 돌려서 쿠키를 없애는 과정임
 				response.addCookie(cookies[i]);
-			}
-			if(cookies[i].getName().equals("pwd")){
-				cookies[i].setMaxAge(0);
-				response.addCookie(cookies[i]);
+				out.println("<h2>로그아웃되었습니다.</h2>");
 			}
 		}
 	}
 %>
-<script>
-	alert("로그아웃 되었습니다.");
-	location.href="loginCookie.jsp";
-</script>
+<form method="post" action="loginCookie.jsp">
+	<input type="submit" value="뒤로가기">
+</form>
 </body>
 </html>
